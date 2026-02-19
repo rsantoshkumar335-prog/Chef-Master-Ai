@@ -13,7 +13,13 @@
     --border-radius: 16px;
     --safe-area-bottom: env(safe-area-inset-bottom);
 }
+html {
+  font-size: 14px; /* Default 16px hota hai */
+}
 
+body {
+  zoom: 0.95;
+}
 
 * {
     margin: 0;
@@ -2552,3 +2558,21 @@ body.show-pattern #dynamic-pattern-container {
    margin-left: 50px ;
    font-family: 'times';
 }
+
+.exit-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 9999;
+}
+.exit-toast.show {
+  opacity: 1;
+}
+
