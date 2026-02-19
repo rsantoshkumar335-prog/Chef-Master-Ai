@@ -2302,3 +2302,19 @@ window.deleteCurrentChat = () => {
 window.closeDeleteModal = () => {
     document.getElementById('delete-modal').classList.add('hidden');
 };
+
+
+
+
+
+
+
+
+
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js")
+      .then(() => console.log("Service Worker Registered"));
+  });
+}
