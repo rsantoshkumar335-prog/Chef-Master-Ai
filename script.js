@@ -2318,3 +2318,34 @@ if ("serviceWorker" in navigator) {
       .then(() => console.log("Service Worker Registered"));
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+let lastBackPressTime = 0;
+
+window.addEventListener("popstate", function () {
+  const currentTime = new Date().getTime();
+
+  if (currentTime - lastBackPressTime < 2000) {
+    window.close(); 
+  } else {
+    lastBackPressTime = currentTime;
+    const toast = document.getElementById("exit-toast");
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2000);
+    history.pushState(null, null, location.href);
+  }
+});
+
+// Initial push
+history.pushState(null, null, location.href);
